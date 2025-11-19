@@ -1,0 +1,25 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "build-debug",
+            "type": "shell",
+            "command": "cd ${workspaceFolder}/build && cmake -DCMAKE_BUILD_TYPE=Debug .. && make -j4",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "problemMatcher": ["$gcc"]
+        },
+        {
+            "label": "build-release",
+            "type": "shell",
+            "command": "cd ${workspaceFolder}/build && cmake -DCMAKE_BUILD_TYPE=Release .. && make -j4"
+        },
+        {
+            "label": "clean-build",
+            "type": "shell",
+            "command": "cd ${workspaceFolder}/build && rm -rf * && cmake -DCMAKE_BUILD_TYPE=Debug .. && make -j4"
+        }
+    ]
+}
