@@ -1,6 +1,6 @@
 #include "Simplex.h"
 
-SimplexMethod::SimplexMethod(const std::string &filename)
+SimplexMethod::SimplexMethod(const std::string &filename) : F()
 {
     std::ifstream file(filename);
     if (!file.is_open()) {
@@ -168,7 +168,7 @@ void SimplexMethod::SecondPhase()
 
     F *= - 1;
     
-    std::cout << "Maximum of function: " << F;
+    std::cout << "Maximum of function: " << F << "\n";
 }
 
 std::ostream& operator<<(std::ostream& out, SimplexMethod& other)
@@ -194,6 +194,7 @@ std::ostream& operator<<(std::ostream& out, SimplexMethod& other)
             out << other.current_basis[index] << "; ";
         }
         out << other.current_basis[other.current_basis.size() - 1] << "]\n";
+        
     }
     out << "------------------------------------------------------------------------+-----------\n";
     return out;
